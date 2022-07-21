@@ -4,7 +4,7 @@
         <div class="card border-info">
             <div class="card-header bg-info text-white">
                 <div class="navbar">
-                    <a class="btn btn-light" value="Nuevo" href="{{route('categoryRegister')}}">Nuevo</a>
+                    <a class="btn btn-light" href="{{route('categoryRegister')}}">Nueva</a>
                 </div>
             </div>
             <div class="card-body">

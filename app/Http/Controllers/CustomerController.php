@@ -42,6 +42,11 @@ class CustomerController extends Controller
         return redirect(route('customerIndex'));
     }
 
+    public function delete($id){
+        Customer::find($id)->delete();
+        return redirect(route('customerIndex'));
+    }
+
     //Metodo aux para validar datos
     public function validateForm (Request $request){
         $validatedData = $request->validate([
