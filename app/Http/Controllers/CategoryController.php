@@ -18,11 +18,7 @@ class CategoryController extends Controller
         $category=Category::find($id);
         return view ('category.edit', compact('category'));
     }
-    public function update($id, Request $request){
-        $data = $this->validateForm($request);
-        Category::find($id)->update($data);
-        return redirect(route('categoryIndex'));
-    }
+
 
 //Metodos de crud http
     public function create(Request $request)
@@ -31,8 +27,20 @@ class CategoryController extends Controller
         Category::insert($data);
         return redirect(route('categoryIndex'));
     }
+
     public function read(){
         return Category::all();
+    }
+
+    public function update($id, Request $request){
+        $data = $this->validateForm($request);
+        Category::find($id)->update($data);
+        return redirect(route('categoryIndex'));
+    }
+
+    public function delete($id){
+        Category::find($id)->delete();
+        return redirect(route('categoryIndex'));
     }
 
     public function validateForm(Request $request){
