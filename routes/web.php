@@ -46,6 +46,7 @@ Route::prefix('/customer')->group(
 
         Route::get('/edit/{id}',[\App\Http\Controllers\CustomerController::class, 'edit'])->name('customerEdit');
 
+        Route::get('/show/{id}',[\App\Http\Controllers\CustomerController::class, 'show'])->name('customerShow');
 
         //Rutas http, peticiones al server
         Route::post('/create', [\App\Http\Controllers\CustomerController::class, 'create'])->name('customerCreate');

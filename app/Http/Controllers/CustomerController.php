@@ -24,6 +24,11 @@ class CustomerController extends Controller
         return view('customer.edit', compact('customer','categories'));
     }
 
+    public function show($id){
+        $customer=Customer::find($id);
+        return view('customer.show', compact('customer'));
+    }
+
     //Metodos de crud http
     public function create(Request $request)
     {

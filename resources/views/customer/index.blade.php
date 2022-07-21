@@ -25,7 +25,6 @@
                         </tr>
                         </thead>
                         <tbody id="tabla">
-
                         <!-- Aqui va el metodo for each -->
                         @foreach($customers as $customer)
                             <tr>
@@ -36,15 +35,10 @@
                                 <td>{{$customer->category->description}}</td>
                                 <td class="d-flex justify-content-center">
                                     <a href="{{route('customerEdit', $customer)}}"><input type="button" value="Editar" class="btn btn-warning" id="btnEditar"></a>&nbsp;
-                                    <form method="POST" action="{{route('customerDelete', $customer->id)}}" class="text-center">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Eliminar</button>
-                                    </form>
+                                    <a href="{{route('customerShow', $customer)}}"><input type="button" value="Eliminar" class="btn btn-danger" ></a>
                                 </td>
                             </tr>
                         @endforeach
-
                         </tbody>
                     </table>
                 </div>
