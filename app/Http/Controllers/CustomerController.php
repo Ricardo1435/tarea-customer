@@ -18,6 +18,12 @@ class CustomerController extends Controller
         return view('customer.register', compact('categories'));
     }
 
+    public function edit($id){
+        $categories = Category::all();
+        $customer = Customer::find($id);
+        return view('customer.edit', compact('customer','categories'));
+    }
+
     //Metodos de crud http
     public function create(Request $request)
     {
@@ -28,6 +34,12 @@ class CustomerController extends Controller
 
     public function read(){
         return Customer::all();
+    }
+
+    public function update($id, Request $request){
+        $data = $this->validateForm($request);
+        Customer::find($id)->update($data);
+        return redirect(route('customerIndex'));
     }
 
     //Metodo aux para validar datos
