@@ -14,6 +14,15 @@ class CategoryController extends Controller
     public function register(){
         return view('category.register');
     }
+    public function edit($id){
+        $category=Category::find($id);
+        return view ('category.edit', compact('category'));
+    }
+    public function update($id, Request $request){
+        $data = $this->validateForm($request);
+        Category::find($id)->update($data);
+        return redirect(route('categoryIndex'));
+    }
 
 //Metodos de crud http
     public function create(Request $request)
